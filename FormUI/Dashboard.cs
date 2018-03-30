@@ -16,5 +16,15 @@ namespace FormUI
         {
             InitializeComponent();
         }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            if (lastNameText.Text != "")
+            {
+                DataAccess db = new DataAccess();
+                db.GetPeople(lastNameText.Text);
+                //up to here
+            }
+        }
     }
 }
