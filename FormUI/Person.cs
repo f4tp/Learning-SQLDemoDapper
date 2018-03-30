@@ -13,5 +13,19 @@ namespace FormUI
         public string LastName { get; set; }
         public string EmailAddress { get; set; }
         public string Phonenumber { get; set; }
+
+        //propfull tab tab
+        public string FullInfo
+        {
+            get {
+                //format will be Paul Treadwell (p@p.com)
+                //$ used to embed string variables within a string literal
+                //as a format operator
+                return $"{ FirstName} {LastName} ({EmailAddress})";
+                }
+           }
+
+
+
     }
 }
