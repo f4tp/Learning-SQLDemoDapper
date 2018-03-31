@@ -25,13 +25,10 @@ namespace FormUI
         }
 
         private void searchButton_Click(object sender, EventArgs e)
-        {
-            if (lastNameText.Text != "")
-            {
-                DataAccess db = new DataAccess();
+        {            
+              DataAccess db = new DataAccess();
               people =  db.GetPeople(lastNameText.Text);
-              
-            }
+                          
         }
     }
 }
