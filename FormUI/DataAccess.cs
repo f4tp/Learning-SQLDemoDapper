@@ -21,10 +21,10 @@ namespace FormUI
             {
                 // var output = connection.Query<Person>($"SELECT * FROM tblPeople").ToList();
 
-                if (connection.State == ConnectionState.Closed)
-                {
-                    connection.Open();
-                }
+                //if (connection.State == ConnectionState.Closed)
+                //{
+                   // connection.Open();
+                //}
 
                 var output =  connection.Query<Person>($"SELECT * FROM dbo.tblPeople WHERE LastName = '{lastname}';").ToList();
           

@@ -16,19 +16,27 @@ namespace FormUI
         public Dashboard()
         {
             InitializeComponent();
+            UpdateBinding();
+            
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {            
+            DataAccess db = new DataAccess();
+            people =  db.GetPeople(lastNameText.Text);
+            UpdateBinding();
+
+        }
+
+        private void UpdateBinding()
+        {
             //connect the listbox to the people List object
             peopleFoundListbox.DataSource = people;
             //a string variable created in the People class
             //will include firstname lastname (email address)
             //Question - why is it passed as string and not a variable?
-            peopleFoundListbox.DisplayMember = "FullInfo";
-        }
+              peopleFoundListbox.DisplayMember = "FullInfo";
 
-        private void searchButton_Click(object sender, EventArgs e)
-        {            
-              DataAccess db = new DataAccess();
-              people =  db.GetPeople(lastNameText.Text);
-                          
         }
     }
 }
