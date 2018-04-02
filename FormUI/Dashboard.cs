@@ -17,7 +17,6 @@ namespace FormUI
         {
             InitializeComponent();
             UpdateBinding();
-            
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -25,7 +24,16 @@ namespace FormUI
             DataAccess db = new DataAccess();
             people =  db.GetPeople(lastNameText.Text);
             UpdateBinding();
+            db.InsertPeople();
+            UpdateBinding();
+        }
 
+
+        private void btnInsertPerson_Click(object sender, EventArgs e)
+        {
+            DataAccess db = new DataAccess();
+            db.InsertPerson(firstNameInsText.Text, lastNameInsText.Text, emailAddInsText.Text, phoneNumInsText.Text);
+            //db.InsertPeople();
         }
 
         private void UpdateBinding()
@@ -35,8 +43,7 @@ namespace FormUI
             //a string variable created in the People class
             //will include firstname lastname (email address)
             //Question - why is it passed as string and not a variable?
-              peopleFoundListbox.DisplayMember = "FullInfo";
-
+            peopleFoundListbox.DisplayMember = "FullInfo";
         }
     }
 }
