@@ -24,8 +24,8 @@ namespace FormUI
             DataAccess db = new DataAccess();
             people =  db.GetPeople(lastNameText.Text);
             UpdateBinding();
-            db.InsertPeople();
-            UpdateBinding();
+            //db.InsertPeople();
+            //UpdateBinding();
         }
 
 
